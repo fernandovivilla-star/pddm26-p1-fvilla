@@ -80,28 +80,37 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SafeArea(
         child: IndexedStack(index: _selectedIndex, children: pages),
       ),
-      bottomNavigationBar: NavigationBar(
-        selectedIndex: _selectedIndex,
-        onDestinationSelected: (index) =>
-            setState(() => _selectedIndex = index),
-        destinations: const [
-          NavigationDestination(
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        currentIndex: _selectedIndex,
+        onTap: (index) => setState(() => _selectedIndex = index),
+        backgroundColor: Colors.white,
+        selectedItemColor: AppTheme.forest,
+        unselectedItemColor: const Color(0xFF766F6A),
+        showUnselectedLabels: true,
+        selectedLabelStyle: const TextStyle(
+          fontWeight: FontWeight.w700,
+          fontSize: 11,
+        ),
+        unselectedLabelStyle: const TextStyle(fontSize: 11),
+        items: const [
+          BottomNavigationBarItem(
             icon: Icon(Icons.home_outlined),
-            selectedIcon: Icon(Icons.home),
+            activeIcon: Icon(Icons.home),
             label: 'Inicio',
           ),
-          NavigationDestination(
+          BottomNavigationBarItem(
             icon: Icon(Icons.grid_view_rounded),
             label: 'Categorías',
           ),
-          NavigationDestination(
+          BottomNavigationBarItem(
             icon: Icon(Icons.favorite_border),
-            selectedIcon: Icon(Icons.favorite),
+            activeIcon: Icon(Icons.favorite),
             label: 'Favoritos',
           ),
-          NavigationDestination(
+          BottomNavigationBarItem(
             icon: Icon(Icons.person_outline),
-            selectedIcon: Icon(Icons.person),
+            activeIcon: Icon(Icons.person),
             label: 'Perfil',
           ),
         ],

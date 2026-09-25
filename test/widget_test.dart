@@ -13,7 +13,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Bienvenida a Lion Flowers'), findsOneWidget);
-    expect(find.byType(NavigationBar), findsOneWidget);
+    expect(find.byType(BottomNavigationBar), findsOneWidget);
     expect(find.text('Categorías'), findsOneWidget);
     expect(find.text('Arreglos para alegrar tu día'), findsOneWidget);
     expect(floralProducts, hasLength(10));
